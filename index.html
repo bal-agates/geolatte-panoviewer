@@ -51,8 +51,10 @@
 				str += "<li> left edge = " + viewer.normalizeX(pov.yaw - pov.hFov/2) + "</li>";				
 				povEl.innerHTML = str;
 				
-				var ywfrm = document.getElementById("yaw-form");
-				ywfrm.setAttribute("value", pov.yaw);
+				let yawForm = document.getElementById("yaw-form");
+				yawForm.setAttribute("value", pov.yaw);
+				let zoomForm = document.getElementById("zoom-form");
+				zoomForm.setAttribute("value", pov.zoom);
 					
 		});
 	
@@ -60,7 +62,7 @@
 	btn.addEventListener('click', function(ev) { 
 		var p = parseFloat(document.getElementById("yaw-form").value);
 		var z = parseFloat(document.getElementById("zoom-form").value);
-		viewer.setPov({yaw: p, zoom: z});	
+		viewer.updatePov({yaw: p, zoom: z});	
 	});
 				
 	viewer.loadImageSrc('panos/5C01K8RM.jpg', {yaw: 90.0});
