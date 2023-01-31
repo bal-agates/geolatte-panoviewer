@@ -53,6 +53,8 @@
 				
 				let yawForm = document.getElementById("yaw-form");
 				yawForm.setAttribute("value", pov.yaw);
+				let pitchForm = document.getElementById("pitch-form");
+				pitchForm.setAttribute("value", pov.pitch);
 				let zoomForm = document.getElementById("zoom-form");
 				zoomForm.setAttribute("value", pov.zoom);
 					
@@ -60,9 +62,10 @@
 	
 	var btn = document.getElementById("btnUpdate");
 	btn.addEventListener('click', function(ev) { 
-		var p = parseFloat(document.getElementById("yaw-form").value);
-		var z = parseFloat(document.getElementById("zoom-form").value);
-		viewer.updatePov({yaw: p, zoom: z});	
+		let y = parseFloat(document.getElementById("yaw-form").value);
+		let p = parseFloat(document.getElementById("pitch-form").value);
+		let z = parseFloat(document.getElementById("zoom-form").value);
+		viewer.updatePov({yaw: y, pitch: p, zoom: z});	
 	});
 				
 	viewer.loadImageSrc('panos/5C01K8RM.jpg', {yaw: 90.0});
@@ -80,6 +83,7 @@
 	</canvas> 
 	<form>
 		<input id="yaw-form" type="text" value="0.0" name="yaw"/>
+		<input id="pitch-form" type="text" value="0.0" name="pitch"/>
 		<input id="zoom-form" type="text" value="1.0" name="zoom"/> 
 		<input type="button" id="btnUpdate" value="apply" />
 	</form>
